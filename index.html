@@ -87,6 +87,17 @@
   .stats li{display:flex;flex-direction:column}
   .stats strong{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1;letter-spacing:-.02em}
   .stats span{font-size:.82rem;color:var(--muted);margin-top:.35rem;letter-spacing:.02em}
+  /* HugGooling case — video-coming-soon placeholder + brand-tinted treatment */
+  .case__media--soon{background:#0f0f0f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;cursor:default;padding:1.5rem}
+  .case__media--soon::before{content:"";position:absolute;inset:0;background:radial-gradient(130% 130% at 50% 0%,rgba(252,229,102,.20),transparent 62%);z-index:0}
+  .case__brandlogo{position:relative;z-index:1;width:min(66%,310px);height:auto;filter:drop-shadow(0 8px 26px rgba(0,0,0,.45))}
+  .case__soon{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.55rem;font-family:var(--body);font-weight:600;font-size:.78rem;letter-spacing:.04em;color:#0f0f0f;background:#FCE566;padding:.5em 1.05em;border-radius:100px}
+  .case__soon::before{content:"";width:7px;height:7px;border-radius:50%;background:#0f0f0f;animation:soonpulse 1.6s var(--ease) infinite}
+  @keyframes soonpulse{0%,100%{opacity:.25}50%{opacity:1}}
+  .case__steps{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 1.5rem}
+  .case__steps li{font-size:.8rem;font-weight:500;color:var(--ink);background:var(--bg-alt);border:1px solid var(--line);padding:.45em .9em;border-radius:100px}
+  .case__note{font-size:.95rem;color:var(--muted);max-width:48ch;border-left:2px solid var(--red);padding-left:1.05rem;line-height:1.5}
+  .case__note strong{color:var(--ink);font-weight:600}
   .about{padding:clamp(4rem,9vw,7rem) 0;background:var(--bg-alt)}
   .about__inner{max-width:820px}
   .about__text{font-size:clamp(1.1rem,1.8vw,1.45rem);color:#2a2a2a;margin-top:1.4rem;line-height:1.5}
@@ -206,6 +217,30 @@
               <li><strong>78%</strong><span>aged 25–44</span></li>
               <li><strong>B2B</strong><span>enterprise audience</span></li>
             </ul>
+          </div>
+        </article>
+
+        <article class="case reveal">
+          <!-- Video coming soon. To go live: replace this <div class="case__media case__media--soon"> block with
+               <div class="case__media" data-yt="YOUTUBE_ID">
+                 <img class="case__poster" src="https://i.ytimg.com/vi/YOUTUBE_ID/maxresdefault.jpg" alt="HugGooling animated film" loading="lazy" />
+                 <span class="case__play" aria-hidden="true"></span>
+               </div> -->
+          <div class="case__media case__media--soon">
+            <img class="case__brandlogo" src="huggooling-logo.svg" alt="HugGooling" loading="lazy" />
+          </div>
+          <div class="case__body">
+            <p class="eyebrow">Animated brand films</p>
+            <h3>HugGooling</h3>
+            <p class="case__desc">HugGooling makes soft, huggable plush characters for kids. We're producing a run of Disney-style animated brand films that bring those characters to life — content built to win buyers, not just rack up views.</p>
+            <ul class="case__steps">
+              <li>Original script &amp; story</li>
+              <li>Character &amp; world design</li>
+              <li>Professional voiceover</li>
+              <li>Scene-by-scene animation</li>
+              <li>Hand-finished edit &amp; polish</li>
+            </ul>
+            <p class="case__note"><strong>Not your usual AI video.</strong> Every character stays consistent shot to shot, it's told as a real story with a real voice, and it's finished to a studio polish. Each film runs a simple arc — show the problem, then the joyful after — taking viewers from attention to trust to a sale.</p>
           </div>
         </article>
       </div>
