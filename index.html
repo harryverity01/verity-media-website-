@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verity Media — YouTube channels people actually watch</title>
+  <meta name="description" content="Verity Media builds and runs YouTube channels for brands and creators — strategy, presenters, production, and animation, with the numbers to prove it." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ============================================================
+     Verity Media — light + red, Sandwich-inspired (single file)
+     ============================================================ */
+  :root {
+    --bg:#ffffff; --bg-alt:#f5f4f1; --ink:#0f0f0f; --muted:#6b6b6b;
+    --line:#e7e6e2; --red:#ff0000; --red-dark:#cc0000;
+    --maxw:1180px; --pad:24px;
+    --display:"Space Grotesk", system-ui, sans-serif;
+    --body:"Inter", system-ui, -apple-system, sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  em{font-style:italic}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+  .eyebrow{font-family:var(--body);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem}
+  h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;letter-spacing:-.02em}
+  h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em}
+  .u-red{color:var(--red)} .u-muted{color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;font-family:var(--body);font-weight:600;font-size:.95rem;padding:.85em 1.5em;background:var(--ink);color:#fff;border-radius:100px;transition:transform .3s var(--ease),background .3s var(--ease);will-change:transform}
+  .btn:hover{background:var(--red);transform:translateY(-2px)}
+  .btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+  .btn--ghost:hover{background:var(--ink);color:#fff;box-shadow:none}
+  .btn--sm{padding:.6em 1.1em;font-size:.85rem}
+  .nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .35s var(--ease),box-shadow .35s var(--ease),padding .35s var(--ease);padding:10px 0}
+  .nav.is-stuck{background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 var(--line)}
+  .nav__inner{display:flex;align-items:center;justify-content:space-between}
+  .nav__brand{display:flex;align-items:center;gap:.55rem;font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em}
+  .nav__mark{width:18px;height:18px;border-radius:5px;background:var(--red);position:relative;flex:none}
+  .nav__mark::after{content:"";position:absolute;top:50%;left:53%;transform:translate(-50%,-50%);border-left:6px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent}
+  .nav__links{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2.2rem)}
+  .nav__links a{font-size:.92rem;font-weight:500;transition:color .2s}
+  .nav__links a:not(.btn):hover{color:var(--red)}
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--bg-alt)}
+  .hero__video{position:absolute;inset:0;z-index:0}
+  .hero__video iframe{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100svh;min-width:177.78svh;transform:translate(-50%,-50%) scale(1.12);filter:blur(3px) saturate(1.05) brightness(1.04);pointer-events:none;border:0;z-index:1}
+  .hero__poster{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.12);filter:blur(3px) saturate(1.05) brightness(1.04);z-index:0}
+  #ytbg{position:absolute;inset:0;z-index:1}
+  .hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.12);filter:blur(3px) saturate(1.05) brightness(1.04);z-index:0}
+  .hero__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.82) 46%,rgba(255,255,255,.30) 100%),linear-gradient(0deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 30%)}
+  .hero__content{position:relative;z-index:2;max-width:760px;padding-top:80px}
+  .hero__title{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7vw,5.3rem);line-height:1;letter-spacing:-.03em;margin-bottom:1.4rem}
+  .hero__lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:#2a2a2a;max-width:540px;margin-bottom:2.2rem}
+  .hero__cta{display:flex;gap:.8rem;flex-wrap:wrap}
+  .hero__scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;width:26px;height:42px;border:2px solid rgba(15,15,15,.35);border-radius:14px}
+  .hero__scroll span{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:4px;height:8px;border-radius:2px;background:var(--red);animation:scroll 1.6s var(--ease) infinite}
+  @keyframes scroll{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,14px)}}
+  .statement{padding:clamp(5rem,12vw,9rem) 0}
+  .statement__text{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,4vw,3rem);line-height:1.18;letter-spacing:-.02em;max-width:980px}
+  .services{padding:clamp(4rem,9vw,7rem) 0;background:var(--bg-alt)}
+  .section-head{margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .services__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .service{background:var(--bg);padding:clamp(1.8rem,3.5vw,3rem);transition:background .3s var(--ease)}
+  .service:hover{background:#fff}
+  .service__num{font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--red);display:block;margin-bottom:1.4rem}
+  .service h3{font-size:1.5rem;margin-bottom:.7rem}
+  .service p{color:var(--muted);font-size:1rem;max-width:42ch}
+  .results{padding:clamp(5rem,11vw,8.5rem) 0}
+  .case{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:center;padding:clamp(2.5rem,5vw,4.5rem) 0;border-top:1px solid var(--line)}
+  .case--reverse .case__media{order:2}
+  .case__media{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;cursor:pointer;box-shadow:0 18px 50px -22px rgba(0,0,0,.4)}
+  .case__poster{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .case__media:hover .case__poster{transform:scale(1.04)}
+  .case__media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .case__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:var(--red);z-index:2;transition:transform .3s var(--ease)}
+  .case__play::after{content:"";position:absolute;top:50%;left:54%;transform:translate(-50%,-50%);border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent}
+  .case__media:hover .case__play{transform:translate(-50%,-50%) scale(1.12)}
+  .case h3{font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:.8rem}
+  .case__desc{color:var(--muted);font-size:1.05rem;margin-bottom:2rem;max-width:46ch}
+  .stats{list-style:none;display:grid;grid-template-columns:repeat(2,auto);gap:1.4rem 2.4rem}
+  .stats li{display:flex;flex-direction:column}
+  .stats strong{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1;letter-spacing:-.02em}
+  .stats span{font-size:.82rem;color:var(--muted);margin-top:.35rem;letter-spacing:.02em}
+  .about{padding:clamp(4rem,9vw,7rem) 0;background:var(--bg-alt)}
+  .about__inner{max-width:820px}
+  .about__text{font-size:clamp(1.1rem,1.8vw,1.45rem);color:#2a2a2a;margin-top:1.4rem;line-height:1.5}
+  .contact{padding:clamp(5rem,12vw,9rem) 0;text-align:center}
+  .contact__inner{max-width:820px;margin:0 auto}
+  .contact__mail{display:inline-block;margin:1.8rem 0 2rem;font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,4.5vw,3rem);letter-spacing:-.02em;border-bottom:3px solid var(--red);padding-bottom:.1em;transition:color .25s}
+  .contact__mail:hover{color:var(--red)}
+  .contact__socials{display:flex;gap:1.8rem;justify-content:center}
+  .contact__socials a{font-weight:500;color:var(--muted);transition:color .2s}
+  .contact__socials a:hover{color:var(--ink)}
+  .footer{padding:2.4rem 0;border-top:1px solid var(--line)}
+  .footer__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  .footer__brand{display:flex;align-items:center;gap:.5rem;font-family:var(--display);font-weight:600}
+  .footer__copy{color:var(--muted);font-size:.85rem}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.is-in{opacity:1;transform:none}
+  @media (max-width:820px){
+    .nav__links a:not(.btn){display:none}
+    .services__grid{grid-template-columns:1fr}
+    .case,.case--reverse{grid-template-columns:1fr}
+    .case--reverse .case__media{order:0}
+    .hero__scrim{background:linear-gradient(0deg,rgba(255,255,255,.96) 12%,rgba(255,255,255,.55) 55%,rgba(255,255,255,.1) 100%)}
+    .hero__content{padding-top:96px}
+  }
+  @media (max-width:460px){.stats{grid-template-columns:1fr 1fr;gap:1.1rem 1rem}.contact__socials{gap:1.2rem}}
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}.hero__scroll span{animation:none}}
+  </style>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a href="#top" class="nav__brand"><span class="nav__mark"></span> Verity&nbsp;Media</a>
+      <nav class="nav__links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn--sm">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__video">
+        <video class="hero__bg" autoplay muted loop playsinline preload="auto">
+          <source src="hero.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__scrim"></div>
+      <div class="wrap hero__content reveal">
+        <p class="eyebrow">Media · Strategy · Production</p>
+        <h1 class="hero__title">We build YouTube channels<br />people <span class="u-red">actually watch.</span></h1>
+        <p class="hero__lede">Verity Media runs the whole engine for brands and creators — strategy, presenters, production, and animation. And we have the numbers to prove it works.</p>
+        <div class="hero__cta">
+          <a href="#results" class="btn">See the results</a>
+          <a href="#services" class="btn btn--ghost">What we do</a>
+        </div>
+      </div>
+      <a href="#statement" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <section class="statement" id="statement">
+      <div class="wrap">
+        <p class="statement__text reveal">Most company channels are a graveyard of webinars and event recaps. <span class="u-muted">We make the kind of video people <em>choose</em> to watch — then turn that attention into growth.</span></p>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <header class="section-head reveal"><p class="eyebrow">What we do</p><h2>One team, the whole channel.</h2></header>
+        <div class="services__grid">
+          <article class="service reveal"><span class="service__num">01</span><h3>Channel Management</h3><p>We run your channel like an owner, not a vendor — strategy, scripting, scheduling, uploads and analytics. The whole engine, handled.</p></article>
+          <article class="service reveal"><span class="service__num">02</span><h3>Presenters &amp; Casting</h3><p>Need a face for your corporate channel? We find, direct and produce presenters who make technical topics genuinely watchable.</p></article>
+          <article class="service reveal"><span class="service__num">03</span><h3>Animated Video</h3><p>Disney-style animated storytelling that explains complex products and ideas — without sending anyone to sleep.</p></article>
+          <article class="service reveal"><span class="service__num">04</span><h3>Strategy &amp; Production</h3><p>From positioning and content strategy to filming and final edit. End to end, under one roof.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="results">
+      <div class="wrap">
+        <header class="section-head reveal"><p class="eyebrow">Results</p><h2>We don't pitch theories.<br />We point at numbers.</h2></header>
+
+        <article class="case reveal" id="work">
+          <div class="case__media" data-yt="yjcA1IoS9t8">
+            <img class="case__poster" src="https://i.ytimg.com/vi/yjcA1IoS9t8/maxresdefault.jpg" alt="Andrew Lownie Clips" loading="lazy" />
+            <span class="case__play" aria-hidden="true"></span>
+          </div>
+          <div class="case__body">
+            <p class="eyebrow">Owned channel · launched May 2026</p>
+            <h3>Andrew Lownie Clips</h3>
+            <p class="case__desc">Built from a standing start to nearly a million views a month. We handle clip selection, editing, packaging and daily publishing across Shorts and long-form.</p>
+            <ul class="stats">
+              <li><strong>7,880</strong><span>subscribers</span></li>
+              <li><strong>2.2M</strong><span>total views</span></li>
+              <li><strong>936K</strong><span>views / 28 days</span></li>
+              <li><strong>+1,352</strong><span>subs / 28 days</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case case--reverse reveal">
+          <div class="case__media" data-yt="ib9FECi5TWU">
+            <img class="case__poster" src="https://i.ytimg.com/vi/ib9FECi5TWU/hqdefault.jpg" alt="GCore editorial video" loading="lazy" />
+            <span class="case__play" aria-hidden="true"></span>
+          </div>
+          <div class="case__body">
+            <p class="eyebrow">Enterprise client · presenter &amp; production</p>
+            <h3>GCore</h3>
+            <p class="case__desc">Editorial-grade tech analysis for a European AI-infrastructure company. We write, present and produce a CTO-grade channel that enterprise decision-makers actually finish — not another wall of event recaps.</p>
+            <ul class="stats">
+              <li><strong>2.5M</strong><span>total views</span></li>
+              <li><strong>2m 30s</strong><span>avg. view time</span></li>
+              <li><strong>78%</strong><span>aged 25–44</span></li>
+              <li><strong>B2B</strong><span>enterprise audience</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about__inner reveal">
+        <p class="eyebrow">Who we are</p>
+        <h2>We test it on our own audiences first.</h2>
+        <p class="about__text">Verity Media is led by <strong>Harry Verity</strong> — journalist, YouTube creator and AI consultant. We run our own channels across news, history and tech, so we know what works on real audiences before we ever bill a client for it. When you hire us, you hire people who do this every single day — for themselves.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact__inner reveal">
+        <p class="eyebrow">Let's talk</p>
+        <h2>Got a channel that should be<br />working harder?</h2>
+        <a class="contact__mail" href="mailto:hello@harryverity.xyz">hello@harryverity.xyz</a>
+        <div class="contact__socials">
+          <a href="#" rel="noopener">YouTube</a>
+          <a href="#" rel="noopener">Instagram</a>
+          <a href="#" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span class="footer__brand"><span class="nav__mark"></span> Verity Media</span>
+      <span class="footer__copy">© 2026 Verity Media. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('is-stuck',window.scrollY>40);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const revealEls=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((es)=>{es.forEach((e)=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{threshold:0.15,rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach((el)=>io.observe(el));
+  }else{revealEls.forEach((el)=>el.classList.add('is-in'));}
+  const tiles=document.querySelectorAll('.case__media[data-yt]');
+  function playTile(t){if(t.dataset.playing)return;t.dataset.playing='1';const id=t.dataset.yt;const f=document.createElement('iframe');f.src=`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3`;f.title='Showreel clip';f.allow='autoplay; encrypted-media';f.setAttribute('allowfullscreen','');t.appendChild(f);}
+  function stopTile(t){const f=t.querySelector('iframe');if(f)f.remove();delete t.dataset.playing;}
+  const canHover=window.matchMedia('(hover: hover)').matches;
+  tiles.forEach((t)=>{if(canHover){t.addEventListener('mouseenter',()=>playTile(t));t.addEventListener('mouseleave',()=>stopTile(t));}else{t.addEventListener('click',()=>{t.dataset.playing?stopTile(t):playTile(t);});}});
+  </script>
+</body>
+</html>
