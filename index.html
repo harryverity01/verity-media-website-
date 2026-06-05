@@ -121,6 +121,11 @@
     .case--reverse .case__media{order:0}
     .hero__scrim{background:linear-gradient(0deg,rgba(255,255,255,.96) 12%,rgba(255,255,255,.55) 55%,rgba(255,255,255,.1) 100%)}
     .hero__content{padding-top:96px}
+    /* mobile: hero sits behind a dark video at the top, so hide the low-contrast eyebrow
+       and flip the brand to white until the nav bar turns solid on scroll */
+    .hero__content .eyebrow{display:none}
+    .nav__brand{color:#fff}
+    .nav.is-stuck .nav__brand{color:var(--ink)}
   }
   @media (max-width:460px){.stats{grid-template-columns:1fr 1fr;gap:1.1rem 1rem}.contact__socials{gap:1.2rem}}
   @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}.hero__scroll span{animation:none}}
